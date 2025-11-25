@@ -14,10 +14,10 @@
             <td>Enterprise</td>
             <td>
                 1. Select your profile image from the header.<br />
-                2. Select _Enterprises_.<br />
+                2. Select <i>Enterprises</i>.<br />
                 3. Select the appropriate enterprise.<br />
-                4. Select _Policies_.<br />
-                5. Select _Repository_ -> _Repository_.
+                4. Select <i>Policies</i>.<br />
+                5. Select <i>Repository</i> -> _Repository_.
             </td>
             <td>Enterprise</td>
         </tr>
@@ -25,10 +25,10 @@
             <td>Organization</td>
             <td>
                 1. Select your profile image from the header.<br />
-                2. Select _Organizations_.<br />
+                2. Select <i>Organizations</i>.<br />
                 3. Select the appropriate organization.<br />
-                4. Select _Settings_.<br />
-                5. Select _Repository_ -> _Rulesets_ -> _New ruleset_.
+                4. Select <i>Settings</i>.<br />
+                5. Select <i>Repository</i> -> <i>Rulesets</i> -> _New ruleset_.
             </td>
             <td>Organization</td>
         </tr>
@@ -36,10 +36,10 @@
             <td>Repository</td>
             <td>
                 1. Select your profile image from the header.<br />
-                2. Select _Repositories_ OR Select the appropriate organization -> _Repositories_.<br />
+                2. Select <i>Repositories</i> OR Select the appropriate organization -> <i>Repositories</i>.<br />
                 3. Select the appropriate repository.<br />
-                4. Select _Settings_.<br />
-                5. Select _Rules_ -> _Rulesets_ -> _New ruleset_.
+                4. Select <i>Settings</i>.<br />
+                5. Select <i>Rules</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
             <td>Repository</td>
         </tr>
