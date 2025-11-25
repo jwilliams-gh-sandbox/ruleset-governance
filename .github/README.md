@@ -1,6 +1,6 @@
 # :construction_worker: This is a WIP
 
-### Steps to find UI settings starting from your default [github.com](https://github.com/) landing page:
+### Steps to find UI settings from [github.com](https://github.com/):
 <table width="100%">
     <thead>
         <tr>
