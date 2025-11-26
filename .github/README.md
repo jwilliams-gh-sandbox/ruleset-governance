@@ -19,7 +19,7 @@
                 4. Select <i>Policies</i>.<br />
                 5. Select <i>Repository</i> -> <i>Repository</i>.
             </td>
-            <td>Enterprise</td>
+            <td>https://github.com/enterprises/&lt;ENTERPRISE SLUG&gt;![test](../svg-hacks/enterprise-slug.svg)</td>
         </tr>
         <tr>
             <td>Organization</td>
@@ -30,7 +30,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Repository</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
-            <td>Organization</td>
+            <td>https://github.com/<style color="red">&lt;ORGANIZATION SLUG&gt;</style></td>
         </tr>
         <tr>
             <td>Repository</td>
@@ -41,7 +41,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Rules</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
-            <td>Repository</td>
+            <td>https://github.com/&lt;ORGANIZATION SLUG&gt;/&lt;REPO NAME&gt;</td>
         </tr>
     </tbody>
 </table>
