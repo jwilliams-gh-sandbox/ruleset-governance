@@ -17,7 +17,7 @@
                 2. Select <i>Enterprises</i>.<br />
                 3. Select the appropriate enterprise.<br />
                 4. Select <i>Policies</i>.<br />
-                5. Select <i>Repository</i> -> _Repository_.
+                5. Select <i>Repository</i> -> <i>Repository</i>.
             </td>
             <td>Enterprise</td>
         </tr>
@@ -28,7 +28,7 @@
                 2. Select <i>Organizations</i>.<br />
                 3. Select the appropriate organization.<br />
                 4. Select <i>Settings</i>.<br />
-                5. Select <i>Repository</i> -> <i>Rulesets</i> -> _New ruleset_.
+                5. Select <i>Repository</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
             <td>Organization</td>
         </tr>
