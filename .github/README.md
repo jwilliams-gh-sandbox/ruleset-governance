@@ -19,7 +19,7 @@
                 4. Select <i>Policies</i>.<br />
                 5. Select <i>Repository</i> -> <i>Repository</i>.
             </td>
-            <td>https://github.com/enterprises/<img src="../svg-hacks/enterprise-slug.svg" /></td>
+            <td>https://github.com/enterprises/<var>&lt;ENTERPRISE SLUG&gt;</var></td>
         </tr>
         <tr>
             <td>Organization</td>
@@ -30,7 +30,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Repository</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
-            <td>https://github.com/<style color="red">&lt;ORGANIZATION SLUG&gt;</style></td>
+            <td>https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var></td>
         </tr>
         <tr>
             <td>Repository</td>
@@ -41,7 +41,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Rules</i> -> <i>Rulesets</i> -> <i>New ruleset</i>.
             </td>
-            <td>https://github.com/&lt;ORGANIZATION SLUG&gt;/&lt;REPO NAME&gt;</td>
+            <td>https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var>/<var>&lt;REPO NAME&gt;</var></td>
         </tr>
     </tbody>
 </table>
@@ -51,8 +51,8 @@
 ---
 title: High Level POC Plan (alpha)
 ---
-flowchart TB
+flowchart TD
     subgraph "GitHub UI"
-    select_repo@{ shape: rect, label: "Select Repository"} --> ...
+    select_repo@{ shape: rect, label: "Create ruleset"} --> ...
     end
 ```
