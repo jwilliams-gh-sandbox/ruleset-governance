@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" viewBox="0 0 180 14">
-  <style>
-    .my-text {
-      font-family: sans-serif;
-      /* font-size: 12px; */
-      fill: #ff0000; /* Red color */
-      font-weight: bold;
-    }
-  </style>
-  <text y="12" x="0" class="my-text">&lt;ENTERPRISE-SLUG&gt;</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" viewBox="0 0 110 10">
+    <style>
+        .my-text {
+            font-family: sans-serif;
+            font-size: 10px;
+            fill: #ff0000; /* Red color */
+            font-weight: bold;
+        }
+    </style>
+    <text y="10" x="0" class="my-text">&lt;ENTERPRISE SLUG&gt;</text>
 </svg>

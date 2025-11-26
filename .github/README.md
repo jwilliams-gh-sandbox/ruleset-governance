@@ -19,7 +19,7 @@
                 4. Select <i>Policies</i>.<br />
                 5. Select <i>Repository</i> -> <i>Repository</i>.
             </td>
-            <td>https://github.com/enterprises/&lt;ENTERPRISE SLUG&gt;![test](../svg-hacks/enterprise-slug.svg)</td>
+            <td>https://github.com/enterprises/<img src="../svg-hacks/enterprise-slug.svg" /></td>
         </tr>
         <tr>
             <td>Organization</td>
