@@ -51,6 +51,7 @@
 ---
 title: High Level POC Plan - v0
 ---
+%%{init: {'theme':'dark'}}%%
 flowchart LR
     subgraph optional_ui[ ]
         direction TB
@@ -78,9 +79,10 @@ flowchart LR
 
     optional_ui optional_ui_to_edit_rulesets@--> edit_rulesets
 
-    subgraph automation["Automation"]
+    subgraph automation[ ]
         direction TB
-        workflow_trigger["A workflow is triggered on the push to the _default_ branch"] --> workflow_diff_discovery["Upsert made to ruleset"]
+        title_automation["Automation"] ~~~ workflow_trigger("A workflow is triggered on the push to the _default_ branch")
+        workflow_trigger --> workflow_diff_discovery("Upsert made to ruleset")
     end
 
     edit_rulesets edit_rulesets_to_automation@--> automation
@@ -90,10 +92,12 @@ flowchart LR
     class optional_ui_to_edit_rulesets,edit_rulesets_to_automation animate_arrow
 
     %% title styles
-    classDef title stroke: none, fill: none, font-size: 100%, text-decoration: underline, font-weight:bold;
-    class title_optional_ui,title_edit_rulesets title
+    classDef title stroke-width:4px, text-decoration: underline, font-weight:bold;
+    class title_optional_ui,title_edit_rulesets,title_automation title
 
-    %% title styles
-    classDef subGraph font-size:24px, stroke-width:3px;
-    class optional_ui,edit_rulesets,automation subGraph
+    %% subgraph styles
+    classDef _subgraph stroke-width:10px, stroke-dasharray: 5 10, stoke-linecap: round, stroke-opacity: 40%;
+    class optional_ui,edit_rulesets,automation _subgraph
+
+
 ```
