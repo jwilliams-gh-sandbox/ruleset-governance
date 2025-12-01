@@ -52,9 +52,9 @@
 title: High Level POC Plan - v0
 ---
 %%{init: {'theme':'dark'}}%%
-flowchart LR
+flowchart TD
     subgraph optional_ui["OPTIONAL Step"]
-        direction TB
+        direction LR
         title_optional_ui["GitHub UI"] ~~~ choose_playground["Choose a safe playground org"]
         choose_playground --> follow_steps["Follow the #quot;Organization#quot; steps above to create a new ruleset"]
         follow_steps --> define_props["Define the ruleset"]
@@ -65,7 +65,7 @@ flowchart LR
     end
 
     subgraph edit_rulesets["Step 1"]
-        direction TB
+        direction LR
         title_edit_rulesets["Edit Ruleset Files"] ~~~ pick_ide["Pick an IDE"]
         pick_ide --> cd_repo["`cd &lt;PATH TO DEDICATED RULSET GOVERNANCE REPO&gt;`"]
         cd_repo --> git_pull["`git pull`"]
@@ -80,7 +80,7 @@ flowchart LR
     optional_ui optional_ui_to_edit_rulesets@--> edit_rulesets
 
     subgraph automation["Step 2"]
-        direction TB
+        direction LR
         title_automation["Automation"] ~~~ workflow_trigger("A workflow is triggered on the push to the _default_ branch")
         workflow_trigger --> workflow_diff_discovery("Upsert made to ruleset")
     end
