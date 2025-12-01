@@ -36,6 +36,7 @@ jobs:
             } else {  // REMOVE
                 file_path = '${{ github.event.inputs.ruleset_path }}';
             }
+
+            file_path = path.join(process.env.GITHUB_ACTION_PATH, file_path)
             
-            console.log(file_path);
-            
+            console.log("file_path=${file_path}");
