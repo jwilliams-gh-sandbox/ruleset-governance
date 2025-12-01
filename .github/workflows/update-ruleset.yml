@@ -22,15 +22,23 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const path = require('path');
-            let file_path = "";
+            let ruleset_relative_file_path = "";
 
             if (process.env.EVENT_NAME == "push"){
-                file_path = "TODO";
+                // TODO: need to add an action before this one to find the path(s) of all changed file(s)
+                ruleset_relative_file_path = "TODO";
             } else {  // REMOVE
-                file_path = '${{ github.event.inputs.ruleset_path }}';
+                ruleset_relative_file_path = '${{ inputs.ruleset_path }}';
             }
 
-            file_path = path.join(process.env.GITHUB_ACTION_PATH, file_path)
+            /*
+            const get_content = await github.rest.repos.getContent({
+              owner,
+              repo,
+              path,
+              ref: 'main'
+            });
+            */
             
             console.log("file_path=${file_path}");
+            console.log("ref_name=${{ github.ref_name }}");
