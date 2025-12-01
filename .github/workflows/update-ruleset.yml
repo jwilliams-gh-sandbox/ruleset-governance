@@ -29,13 +29,13 @@ jobs:
               - 
 
             */
-            let file_path = ""
+            let file_path = "";
 
             if (process.env.EVENT_NAME == "push"){
-                file_path = "TODO"
+                file_path = "TODO";
             } else {  // REMOVE
-                file_path = '${{ github.event.inputs.ruleset_path }}'
+                file_path = '${{ github.event.inputs.ruleset_path }}';
             }
             
-            core.setInfo(file_path)
+            console.log(file_path);
             
