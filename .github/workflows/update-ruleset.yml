@@ -2,11 +2,11 @@ name: Update Rulesets
 on:
   workflow_dispatch:
     inputs:
-      ruleset_path:
-        description: 'FOR TESTING - Path to the ruleset directory'
+      ruleset_paths:
+        description: 'A comma-separated list of paths to ruleset files to update. ex: /path/to/ruleset1.json,/path/to/ruleset2.json'
         required: true
         type: string
-        default: "/example-rulesets/repository/protect-default.json"
+        default: "/example-rulesets/repository/protect-default.json"  # TODO: remove
   push:
     # branches:
     #   - main
@@ -23,9 +23,19 @@ jobs:
           fetch-depth: 0
       - name: Discover Changed Rulesets
         run: |
-          UPDATED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          if [ "${{ github.event_name }}" = "push" ]; then
+            UPDATED_FILES=$(git diff --name-only --diff-filter=M ${{ github.event.before }} ${{ github.sha }})
+            UPDATED_FILES=$(echo $UPDATED_FILES  | tr '\n' ',' | sed 's/,$//')  # the list of files is newline-seperated, convert to comma-separated
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            UPDATED_FILES="${{ github.event.inputs.ruleset_paths }}"
+          else
+            echo "::warning:: Unsupported event type: ${{ github.event_name }}"
+            UPDATED_FILES=""
+          fi
+          echo "::group:debug echos"
           echo "updated_files=${UPDATED_FILES}"
           echo "updated_files=${UPDATED_FILES}" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
       - name: Update rulesets
         uses: actions/github-script@v8
         with:
@@ -36,7 +46,7 @@ jobs:
                 // TODO: need to add an action before this one to find the path(s) of all changed file(s)
                 ruleset_relative_file_path = "TODO";
             } else {  // REMOVE
-                ruleset_relative_file_path = '${{ inputs.ruleset_path }}';
+                ruleset_relative_file_path = '${{ inputs.ruleset_paths }}';
             }
 
             const ruleset_content_raw = await github.rest.repos.getContent({
@@ -48,6 +58,6 @@ jobs:
 
             const ruleset_content = Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8');
             
-            console.log("`file_path=${ruleset_relative_file_path}`");
+            console.log('file_path='+${ruleset_relative_file_path});
             console.log("ref_name=${{ github.ref_name }}");
             console.log(`"ruleset_content=${ruleset_content}"`);
