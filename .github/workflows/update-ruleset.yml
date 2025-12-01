@@ -8,8 +8,8 @@ on:
         type: string
         default: "/example-rulesets/repository/protect-default.json"
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     paths:
       - 'example-rulesets/**'
 jobs:
