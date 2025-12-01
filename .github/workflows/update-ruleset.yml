@@ -1,6 +1,6 @@
 name: Update Rulesets
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       ruleset_path:
         description: 'FOR TESTING - Path to the ruleset directory'
