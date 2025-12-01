@@ -1,6 +1,6 @@
 # :construction_worker: This is a WIP
 
-### Steps to find UI settings from [github.com](https://github.com/):
+## Steps to find UI settings from [github.com](https://github.com/):
 <table width="100%">
     <thead>
         <tr>
@@ -19,7 +19,7 @@
                 4. Select <i>Policies</i>.<br />
                 5. Select <i>Repository</i> -> <i>Repository</i>.
             </td>
-            <td>https://github.com/enterprises/<var>&lt;ENTERPRISE SLUG&gt;</var></td>
+            <td><a href="https://github.com/enterprises/">https://github.com/enterprises/<var>&lt;ENTERPRISE SLUG&gt;</var></a></td>
         </tr>
         <tr>
             <td>Organization</td>
@@ -30,7 +30,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Repository</i> -> <i>Rulesets</i> -> <i>New ruleset</i> || <i>Select &lt;RULESET NAME&gt;</i>.
             </td>
-            <td>https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var></td>
+            <td><a href="https://github.com/jwilliams-gh-sandbox">https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var></a></td>
         </tr>
         <tr>
             <td>Repository</td>
@@ -41,7 +41,7 @@
                 4. Select <i>Settings</i>.<br />
                 5. Select <i>Rules</i> -> <i>Rulesets</i> -> <i>New ruleset</i> || <i>Select &lt;RULESET NAME&gt;</i>.
             </td>
-            <td>https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var>/<var>&lt;REPO NAME&gt;</var></td>
+            <td><a href="https://github.com/jwilliams-gh-sandbox/ruleset-governance">https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var>/<var>&lt;REPO NAME&gt;</var></a></td>
         </tr>
     </tbody>
 </table>
@@ -101,3 +101,12 @@ flowchart TD
 
 
 ```
+
+
+## Alternative Options
+1. TODO - Use the UI
+    - pros
+    - cons
+2. TODO - Use the REST or GraphQL API
+    - pros
+    - cons
