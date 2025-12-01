@@ -1,0 +1,41 @@
+name: Update Rulesets
+on:
+  workflow_call:
+    inputs:
+      ruleset_path:
+        description: 'FOR TESTING - Path to the ruleset directory'
+        required: true
+        type: string
+  push:
+    branches:
+      - main
+    paths:
+      - 'example-rulesets/**'
+jobs:
+  update-ruleset:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Update rulesets
+        uses: actions/github-script@v8
+        with:
+          script: |
+            /*
+
+              - discover contents of file
+              - call PUT api
+              - 
+
+            */
+            const event_payload = JSON.parse(process.env.EVENT_PAYLOAD)
+            let file_path = ""
+
+            if (process.env.EVENT_NAME == "push"){
+                file_path = "TODO"
+            } else {  // REMOVE
+                file_path = event_payload.inputs.ruleset_path
+            }
+            
+            core.setInfo(file_path)
+            
