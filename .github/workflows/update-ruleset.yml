@@ -40,6 +40,6 @@ jobs:
 
             const ruleset_content = Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8');
             
-            console.log("file_path=${ruleset_relative_file_path}");
+            console.log("file_path=$ruleset_relative_file_path");
             console.log("ref_name=${{ github.ref_name }}");
-            console.log("ruleset_content=${ruleset_content}");
+            console.log("ruleset_content=$ruleset_content");
