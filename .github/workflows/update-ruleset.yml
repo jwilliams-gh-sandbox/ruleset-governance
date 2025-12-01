@@ -6,6 +6,7 @@ on:
         description: 'FOR TESTING - Path to the ruleset directory'
         required: true
         type: string
+        default: "/example-rulesets/repository/protect-default.json"
   push:
     branches:
       - main
@@ -28,13 +29,12 @@ jobs:
               - 
 
             */
-            const event_payload = JSON.parse(process.env.EVENT_PAYLOAD)
             let file_path = ""
 
             if (process.env.EVENT_NAME == "push"){
                 file_path = "TODO"
             } else {  // REMOVE
-                file_path = event_payload.inputs.ruleset_path
+                file_path = '${{ github.event.inputs.ruleset_path }}'
             }
             
             core.setInfo(file_path)
