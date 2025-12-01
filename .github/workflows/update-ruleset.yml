@@ -33,7 +33,7 @@ jobs:
             echo "::warning:: Unsupported event type: ${{ github.event_name }}"
             UPDATED_FILES=""
           fi
-          echo "::group::debug echos"
+          echo "::group::debug logs"
           echo "updated_files=${UPDATED_FILES}"
           echo "updated_files=${UPDATED_FILES}" >> $GITHUB_OUTPUT
           echo "::endgroup::"
@@ -51,6 +51,8 @@ jobs:
 
             const ruleset_content = Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8');
             
-            console.log(`file_path=${ruleset_relative_file_path}`);
+            core.startGroup("debug logs");
+            console.log(`file_path=${core.getInput('updated_files').split(',')[0].trim()}`);
             console.log("ref_name=${{ github.ref_name }}");
             console.log(`ruleset_content=${ruleset_content}`);
+            core.endGroup();
