@@ -92,7 +92,7 @@ flowchart LR
     class optional_ui_to_edit_rulesets,edit_rulesets_to_automation animate_arrow
 
     %% title styles
-    classDef title stroke-width:4px, text-decoration: underline, font-weight:bold;
+    classDef title stroke-width:4px, text-decoration: underline, font-weight:bold, stroke: red;
     class title_optional_ui,title_edit_rulesets,title_automation title
 
     %% subgraph styles
