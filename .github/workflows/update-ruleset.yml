@@ -12,7 +12,7 @@ on:
     #   - main
     paths:
       - '.github/example-rulesets/**'
-      - '*'
+      - 'workflows/**'
 jobs:
   update-ruleset:
     runs-on: ubuntu-latest
