@@ -1,6 +1,112 @@
 # :construction_worker: This is a WIP
 
-checking mermaid version
+## Steps to find UI settings from [github.com](https://github.com/):
+<table width="100%">
+    <thead>
+        <tr>
+            <th>Entity</th>
+            <th>Steps</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Enterprise</td>
+            <td>
+                1. Select your profile image from the header.<br />
+                2. Select <i>Enterprises</i>.<br />
+                3. Select the appropriate enterprise.<br />
+                4. Select <i>Policies</i>.<br />
+                5. Select <i>Repository</i> -> <i>Repository</i>.
+            </td>
+            <td><a href="https://github.com/enterprises/">https://github.com/enterprises/<var>&lt;ENTERPRISE SLUG&gt;</var></a></td>
+        </tr>
+        <tr>
+            <td>Organization</td>
+            <td>
+                1. Select your profile image from the header.<br />
+                2. Select <i>Organizations</i>.<br />
+                3. Select the appropriate organization.<br />
+                4. Select <i>Settings</i>.<br />
+                5. Select <i>Repository</i> -> <i>Rulesets</i> -> <i>New ruleset</i> || <i>Select &lt;RULESET NAME&gt;</i>.
+            </td>
+            <td><a href="https://github.com/jwilliams-gh-sandbox">https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var></a></td>
+        </tr>
+        <tr>
+            <td>Repository</td>
+            <td>
+                1. Select your profile image from the header.<br />
+                2. Select <i>Repositories</i> OR Select the appropriate organization -> <i>Repositories</i>.<br />
+                3. Select the appropriate repository.<br />
+                4. Select <i>Settings</i>.<br />
+                5. Select <i>Rules</i> -> <i>Rulesets</i> -> <i>New ruleset</i> || <i>Select &lt;RULESET NAME&gt;</i>.
+            </td>
+            <td><a href="https://github.com/jwilliams-gh-sandbox/ruleset-governance">https://github.com/<var>&lt;ORGANIZATION SLUG&gt;</var>/<var>&lt;REPO NAME&gt;</var></a></td>
+        </tr>
+    </tbody>
+</table>
+
+
 ```mermaid
-info
+---
+title: High Level POC Plan - v0
+---
+%%{init: {'theme':'dark'}}%%
+flowchart TD
+    subgraph optional_ui["OPTIONAL Step"]
+        direction LR
+        title_optional_ui["GitHub UI"] ~~~ choose_playground["Choose a safe playground org"]
+        choose_playground --> follow_steps["Follow the #quot;Organization#quot; steps above to create a new ruleset"]
+        follow_steps --> define_props["Define the ruleset"]
+        define_props --> create["_Create_/_Save Changes_"]
+        create --> select_ruleset["Select ruleset"]
+        select_ruleset --> export["From the _..._ additional options, select _Export ruleset_"]
+        export --> download["Open the downloaded _&lt;RULESET NAME&gt;.json_ file"]
+    end
+
+    subgraph edit_rulesets["Step 1"]
+        direction LR
+        title_edit_rulesets["Edit Ruleset Files"] ~~~ pick_ide["Pick an IDE"]
+        pick_ide --> cd_repo["`cd &lt;PATH TO DEDICATED RULSET GOVERNANCE REPO&gt;`"]
+        cd_repo --> git_pull["`git pull`"]
+        git_pull --> git_checkout["`git checkout -b &lt;BRANCH-NAME&gt;`"]
+        git_checkout --> edit_file["Edit the ruleset json file"]
+        edit_file --> gcam["`git add &lt;EDITED FILE PATH&gt; && git commit -m #quot;&lt;COMMIT MESSAGE&gt;#quot;`"]
+        gcam --> git_push["`git push -u origin head`"]
+        git_push --> create_pr["Create PR"]
+        create_pr --> push_default["Push to the _default_ branch"]
+    end
+
+    optional_ui optional_ui_to_edit_rulesets@--> edit_rulesets
+
+    subgraph automation["Step 2"]
+        direction LR
+        title_automation["Automation"] ~~~ workflow_trigger("A workflow is triggered on the push to the _default_ branch")
+        workflow_trigger --> workflow_diff_discovery("Upsert made to ruleset")
+    end
+
+    edit_rulesets edit_rulesets_to_automation@--> automation
+
+    %% arrow styles
+    classDef animate_arrow stroke: #555, stroke-linecap:round, stroke-dasharray: 1 10 5 10, stroke-dashoffset: 500px, stroke-width:3px, animation: dash 50s linear infinite;
+    class optional_ui_to_edit_rulesets,edit_rulesets_to_automation animate_arrow
+
+    %% title styles
+    classDef title stroke-width:4px, text-decoration: underline, font-weight:bold, stroke: red;
+    class title_optional_ui,title_edit_rulesets,title_automation title
+
+    %% subgraph styles
+    classDef _subgraph stroke-width:5px, stroke-dasharray: 5 1, stoke-linecap: round, stroke-opacity: 80%;
+    class optional_ui,edit_rulesets,automation _subgraph
+
+
 ```
+
+
+## Alternative Options
+1. TODO - Use the UI
+    - pros
+    - cons
+2. TODO - Use the REST or GraphQL API
+    - pros
+    - cons
