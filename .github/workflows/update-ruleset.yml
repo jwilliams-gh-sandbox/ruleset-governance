@@ -22,13 +22,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            /*
-
-              - discover contents of file
-              - call PUT api
-              - 
-
-            */
+            const path = require('path');
             let file_path = "";
 
             if (process.env.EVENT_NAME == "push"){
