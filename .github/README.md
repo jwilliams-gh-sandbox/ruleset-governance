@@ -96,7 +96,7 @@ flowchart LR
     class title_optional_ui,title_edit_rulesets,title_automation title
 
     %% subgraph styles
-    classDef _subgraph stroke-width:10px, stroke-dasharray: 5 10, stoke-linecap: round, stroke-opacity: 40%;
+    classDef _subgraph stroke-width:5px, stroke-dasharray: 5 1, stoke-linecap: round, stroke-opacity: 80%;
     class optional_ui,edit_rulesets,automation _subgraph
 
 
