@@ -11,7 +11,8 @@ on:
     # branches:
     #   - main
     paths:
-      - 'example-rulesets/**'
+      - '.github/example-rulesets/**'
+      - '*'
 jobs:
   update-ruleset:
     runs-on: ubuntu-latest
