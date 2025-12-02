@@ -40,7 +40,7 @@ jobs:
       - name: Update rulesets
         uses: actions/github-script@v8
         env:
-          RULESET_ADMIN_TOKEN: ${{ secrets.RULESET_ADMIN_TOKEN }}
+          RULESET_ADMIN_PAT: ${{ secrets.RULESET_ADMIN_PAT }}
         with:
           script: |
             const repo_name = '${{ github.repository }}'.split("/")[1];
@@ -59,7 +59,7 @@ jobs:
 
             const Octokit = github.constructor;
             const octokit_ruleset_admin = new Octokit({
-              auth: process.env.RULESET_ADMIN_TOKEN
+              auth: process.env.RULESET_ADMIN_PAT
             });
 
             const ruleset_update_response = await octokit_ruleset_admin.rest.repos.updateOrgRuleset({
