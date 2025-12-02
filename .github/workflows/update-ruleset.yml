@@ -55,15 +55,15 @@ jobs:
 
             const ruleset_content = JSON.parse(Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8'));
 
-            /*const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
+            const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
               org: ruleset_content.split('/')[0],
               ruleset_id: ruleset_content.id,
               ...ruleset_content
-            });*/
+            });
             
             core.startGroup("debug logs");
             console.log("file_path=${{ steps.discover_changed_rulesets.outputs.updated_files }}");
             console.log("ref_name=${{ github.ref_name }}");
-            console.log(`ruleset_content=${ruleset_content}`);
+            console.log(`ruleset_content=${JSON.stringify(ruleset_content)}`);
             console.log(`ruleset_update_response=${ruleset_update_response}`);
             core.endGroup();
