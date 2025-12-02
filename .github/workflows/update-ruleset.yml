@@ -53,13 +53,13 @@ jobs:
               ref: '${{ github.ref_name }}'
             });
 
-            const ruleset_content = Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8');
+            const ruleset_content = JSON.parse(Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8'));
 
-            const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
+            /*const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
               org: ruleset_content.split('/')[0],
               ruleset_id: ruleset_content.id,
               ...ruleset_content
-            });
+            });*/
             
             core.startGroup("debug logs");
             console.log("file_path=${{ steps.discover_changed_rulesets.outputs.updated_files }}");
