@@ -39,6 +39,8 @@ jobs:
           echo "::endgroup::"
       - name: Update rulesets
         uses: actions/github-script@v8
+        env:
+          RULESET_ADMIN_TOKEN: ${{ secrets.RULESET_ADMIN_TOKEN }}
         with:
           script: |
             const repo_name = '${{ github.repository }}'.split("/")[1];
@@ -55,7 +57,12 @@ jobs:
 
             const ruleset_content = JSON.parse(Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8'));
 
-            const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
+            const { OctokitRulesetAdmin } = github.constructor;
+            const octokit_ruleset_admin = new OctokitRulesetAdmin({
+              auth: process.env.RULESET_ADMIN_TOKEN
+            });
+
+            const ruleset_update_response = await octokit_ruleset_admin.rest.repos.updateOrgRuleset({
               org: ruleset_content.source.split('/')[0],
               ruleset_id: ruleset_content.id,
               ...ruleset_content
