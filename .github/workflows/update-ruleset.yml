@@ -56,7 +56,7 @@ jobs:
             const ruleset_content = JSON.parse(Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8'));
 
             const ruleset_update_response = await github.rest.repos.updateOrgRuleset({
-              org: ruleset_content.split('/')[0],
+              org: ruleset_content.source.split('/')[0],
               ruleset_id: ruleset_content.id,
               ...ruleset_content
             });
