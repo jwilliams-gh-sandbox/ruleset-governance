@@ -57,7 +57,7 @@ jobs:
 
             const ruleset_content = JSON.parse(Buffer.from(ruleset_content_raw.data.content, 'base64').toString('utf8'));
 
-            const { Octokit } = github.constructor;
+            const { Octokit } = require('@octokit/rest');
             const octokit_ruleset_admin = new Octokit({
               auth: process.env.RULESET_ADMIN_TOKEN
             });
